@@ -1,12 +1,8 @@
 const API_URL = "http://localhost:8080/api";
 
-// ===============================
-// CARGAR PRODUCTOS (simulados)
-// ===============================
 async function cargarProductos() {
     const tabla = document.querySelector("table");
 
-    // Aquí simulamos productos (porque tu API no tiene endpoint de productos)
     const productos = [
         { id: 1, nombre: "Producto 1", precio: 10, imagen: "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSz8Pr1709RfC-9RYti5EAP-6fMaDmDqHSJk3L_07zvVUs_8NrRb4h3vskXoDFZ076mLadR0Do" },
         { id: 2, nombre: "Producto 2", precio: 20, imagen: "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSnGJbo0adlal4u4Wu51apeYQAeClBOwkgKdP4j5G6jaInb2callBeH9IdZmQG9VysEEC7uHfQjRw" }
@@ -26,9 +22,6 @@ async function cargarProductos() {
     });
 }
 
-// ===============================
-// AÑADIR AL CARRITO
-// ===============================
 async function añadirAlCarrito(idArticulo, precio) {
     try {
         const linea = {
@@ -55,9 +48,6 @@ async function añadirAlCarrito(idArticulo, precio) {
     }
 }
 
-// ===============================
-// CARGAR CARRITOS
-// ===============================
 async function cargarCarritos() {
     try {
         const response = await fetch(`${API_URL}/carritos`);
@@ -84,9 +74,6 @@ async function cargarCarritos() {
     }
 }
 
-// ===============================
-// ELIMINAR CARRITO
-// ===============================
 async function eliminarCarrito(id) {
     try {
         await fetch(`${API_URL}/carritos/${id}`, {
@@ -100,9 +87,6 @@ async function eliminarCarrito(id) {
     }
 }
 
-// ===============================
-// CREAR CARRITO (opcional)
-// ===============================
 async function crearCarrito() {
     const carrito = {
         idUsuario: Math.floor(Math.random() * 1000),
@@ -128,9 +112,6 @@ async function crearCarrito() {
     }
 }
 
-// ===============================
-// DETECTAR PÁGINA
-// ===============================
 document.addEventListener("DOMContentLoaded", () => {
     if (window.location.pathname.includes("productos.html")) {
         cargarProductos();
